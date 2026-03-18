@@ -1,31 +1,48 @@
-# Recipe Finder (Vanilla JS)
+# CS300 Assignment 3 – Recipe Finder
 
-This project is an interactive **Recipe Finder** using TheMealDB API and vanilla JavaScript.
+## Student Information
+- **Name:** Aliya Khan
 
-## Features
-- Search meals by **name** or **ingredient**
-- Fetch data with `async/await` and `try/catch`
-- Dynamically render meal cards (image, name, category)
-- Click a meal card to view full instructions in a dialog
-- Optional category filter after results load
-- UI states: initial, loading, success, empty, error
-- Responsive layout using CSS Grid/Flexbox
+## Project Option and API
+- **Project Option:** Option C – Recipe Finder
+- **API Chosen:** TheMealDB
+- **API URL:** `https://www.themealdb.com/api/json/v1/1`
 
-## Files
-- `index.html` — semantic structure and UI containers
-- `styles.css` — responsive styles and state styling
-- `script.js` — fetch logic, DOM manipulation, and interactions
+## Live Site URL
+- **Live URL:** `file:///Users/aliyakhan/Desktop/CS300-Assignment-3/index.html`
 
-## Run locally
-Use any static file server. Example:
+## How to Run Locally
+1. Open a terminal and go to the project folder:
 
 ```bash
 cd /Users/aliyakhan/Desktop/CS300-Assignment-3
+```
+
+2. Start a local server:
+
+```bash
 python3 -m http.server 5500
 ```
 
-Then open:
-- `http://localhost:5500`
+3. Open the app in your browser:
 
-## API Used
-- TheMealDB: `https://www.themealdb.com/api/json/v1/1`
+`http://localhost:5500`
+
+## Screenshots of UI States
+Add screenshots to your repo (for example in a `screenshots/` folder), then link them below.
+
+### Loading State
+![Loading State](screenshots/loading-state.png)
+
+### Success State
+![Success State](screenshots/success-state.png)
+
+### Empty State
+![Empty State](screenshots/empty-state.png)
+
+### Error State
+![Error State](screenshots/error-state.png)
+
+## Notes
+- The app is built with **vanilla JavaScript** using `fetch` + `async/await`.
+- Users can search by meal **name** or **ingredient**, filter by category, and open full meal details.
