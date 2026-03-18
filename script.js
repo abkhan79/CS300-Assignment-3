@@ -1,4 +1,5 @@
 const API_BASE = 'https://www.themealdb.com/api/json/v1/1';
+const MIN_LOADING_MS = 5000;
 
 const searchForm = document.querySelector('#searchForm');
 const queryInput = document.querySelector('#queryInput');
@@ -36,6 +37,8 @@ const setStatus = (type, message) => {
   statusSection.className = `status status-${type}`;
   statusSection.textContent = message;
 };
+
+const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 const mealCardMarkup = (meal) => `
   <article class="meal-card">
@@ -214,6 +217,8 @@ const enrichMealsWithCategory = async (meals) => {
 };
 
 const fetchMeals = async (query, mode) => {
+  const loadingStartTime = Date.now();
+
   try {
     setControlsDisabled(true);
     setStatus('loading', 'Loading recipes...');
@@ -232,6 +237,12 @@ const fetchMeals = async (query, mode) => {
     }
 
     const data = await response.json();
+
+    const elapsedTime = Date.now() - loadingStartTime;
+    const remainingLoadingTime = Math.max(0, MIN_LOADING_MS - elapsedTime);
+    if (remainingLoadingTime > 0) {
+      await wait(remainingLoadingTime);
+    }
 
     if (!data.meals) {
       appState.meals = [];
