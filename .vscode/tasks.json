@@ -1,0 +1,77 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "git-status-check",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"status",
+				"-sb"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-status-full",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"status"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-rebase-diagnose",
+			"type": "shell",
+			"command": "zsh",
+			"args": [
+				"-lc",
+				"git rev-parse --abbrev-ref HEAD; echo '---'; git rebase --show-current-patch | head -n 40"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-rebase-continue-1",
+			"type": "shell",
+			"command": "zsh",
+			"args": [
+				"-lc",
+				"GIT_EDITOR=true git rebase --continue"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-remote-check",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"remote",
+				"get-url",
+				"origin"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-push-main",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"push",
+				"-u",
+				"origin",
+				"main"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-final-status",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"status",
+				"-sb"
+			],
+			"isBackground": false
+		}
+	]
+}
