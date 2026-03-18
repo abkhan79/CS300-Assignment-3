@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Recipe Finder</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<header class="site-header">
+		<div class="container">
+			<h1>Recipe Finder</h1>
+			<p>Search meals by name or ingredient, then click a card for full instructions.</p>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="controls" aria-label="Search and filter controls">
+			<form id="searchForm" class="search-form" novalidate>
+				<label for="queryInput" class="sr-only">Search meals</label>
+				<input
+					id="queryInput"
+					name="query"
+					type="text"
+					placeholder="Try: Fries, Garlic, Sweet Potatoes, Potatoes, Jersey Royal Potatoes..."
+					autocomplete="off"
+					data-control
+					required
+				/>
+
+				<label for="searchType" class="sr-only">Search type</label>
+				<select id="searchType" name="searchType" data-control>
+					<option value="name">By name</option>
+					<option value="ingredient">By ingredient</option>
+				</select>
+
+				<button type="submit" data-control>Search</button>
+			</form>
+
+			<div class="filter-row">
+				<label for="categoryFilter">Category:</label>
+				<select id="categoryFilter" data-control>
+					<option value="all">All categories</option>
+				</select>
+			</div>
+
+			<div class="filter-row organize-row">
+				<label for="organizeToggle">Organize by food type:</label>
+				<input id="organizeToggle" type="checkbox" checked />
+			</div>
+		</section>
+
+		<section id="statusSection" class="status status-initial" aria-live="polite">
+			Enter a meal name or ingredient, then press Search.
+		</section>
+
+		<section aria-label="Recipe results">
+			<div id="resultsGrid" class="results-grid"></div>
+			<div id="groupedResults" class="grouped-results"></div>
+			<div class="load-more-container">
+				<button id="loadMoreBtn" type="button" class="load-more-btn" style="display: none;">Load More Recipes</button>
+			</div>
+		</section>
+	</main>
+
+	<dialog id="mealDialog" class="meal-dialog">
+		<article id="mealDetail" class="meal-detail"></article>
+		<form method="dialog" class="dialog-actions">
+			<button type="submit">Close</button>
+		</form>
+	</dialog>
+
+	<script src="script.js" defer></script>
+</body>
+</html>
